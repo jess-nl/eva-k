@@ -8,13 +8,13 @@ const Index = ({ posts }: any) => {
       <h1>Welcome to a blog!</h1>
       {posts.length > 0 &&
         posts.map(
-          ({ _id, title = "", slug = "", publishedAt = "" }: any) =>
+          ({ _id, title = "", slug = "", _updatedAt = "" }: any) =>
             slug && (
               <li key={_id}>
                 <Link href={`/post/${encodeURIComponent(slug.current)}`}>
                   {title}
                 </Link>{" "}
-                ({new Date(publishedAt).toDateString()})
+                ({new Date(_updatedAt).toDateString()})
               </li>
             )
         )}
@@ -24,8 +24,8 @@ const Index = ({ posts }: any) => {
 
 export async function getStaticProps() {
   const posts = await client.fetch(groq`
-      *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
-    `);
+    *[_type == "post"] | order(publishedAt desc)
+  `);
   return {
     props: {
       posts,
