@@ -32,15 +32,12 @@ const ptComponents = {
 const Post = ({ post }: any) => {
   const {
     title = "Missing title",
-    name = "Missing name",
     categories,
-    authorImage,
     body = [],
   } = post;
   return (
     <article>
       <h1>{title}</h1>
-      <span>By {name}</span>
       {categories && (
         <ul>
           Posted in
@@ -49,14 +46,6 @@ const Post = ({ post }: any) => {
           ))}
         </ul>
       )}
-      {authorImage && (
-        <div>
-          <img
-            src={urlFor(authorImage).width(50).url()}
-            alt={`${name}'s picture`}
-          />
-        </div>
-      )}
       <PortableText value={body} components={ptComponents} />
     </article>
   );
@@ -64,9 +53,7 @@ const Post = ({ post }: any) => {
 
 const query = groq`*[_type == "post" && slug.current == $slug][0]{
   title,
-  "name": author->name,
   "categories": categories[]->title,
-  "authorImage": author->image,
   body
 }`;
 export async function getStaticPaths() {
