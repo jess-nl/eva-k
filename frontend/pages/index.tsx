@@ -1,10 +1,22 @@
 import Link from "next/link";
 import groq from "groq";
 import client from "../client";
+import { ChakraProvider } from "@chakra-ui/react";
+import {
+  Text,
+  Flex,
+  Box,
+  Spacer,
+  VStack,
+  AspectRatio,
+  Stack,
+} from "@chakra-ui/react";
+import Header from "../components/Header";
 
 const Index = ({ posts }: any) => {
   return (
-    <div>
+    <ChakraProvider>
+      <Header />
       <h1>Welcome to a blog!</h1>
       {posts.length > 0 &&
         posts.map(
@@ -18,7 +30,7 @@ const Index = ({ posts }: any) => {
               </li>
             )
         )}
-    </div>
+    </ChakraProvider>
   );
 };
 
