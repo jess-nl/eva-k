@@ -1,5 +1,4 @@
 import {defineField, defineType} from 'sanity'
-import Placeholder from '../components/Placeholder'
 
 export default defineType({
   name: 'header',
@@ -32,12 +31,6 @@ export default defineType({
       name: 'vimeoUrl',
       title: 'Vimeo Video URL',
       type: 'string',
-      components: {
-        input: Placeholder,
-      },
-      options: {
-        placeholder: 'https://player.vimeo.com/video/530984056?h=337e6011fd',
-      },
     }),
   ],
 })

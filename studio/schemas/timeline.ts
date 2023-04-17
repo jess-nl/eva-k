@@ -1,5 +1,4 @@
 import {defineField, defineType} from 'sanity'
-import Placeholder from '../components/Placeholder'
 
 export default defineType({
   name: 'timeline',
@@ -34,21 +33,12 @@ export default defineType({
     defineField({
       name: 'yearReleased',
       title: 'Year Released',
-      type: 'date',
-			options: {
-        dateFormat: 'YYYY',
-			}
+      type: 'string',
     }),
     defineField({
       name: 'vimeoUrl',
       title: 'Vimeo Video URL',
       type: 'string',
-      components: {
-        input: Placeholder,
-      },
-			options: {
-				placeholder: 'https://player.vimeo.com/video/530984056?h=337e6011fd'
-			}
     }),
     defineField({
       name: 'summary',
@@ -68,7 +58,6 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      media: 'vimeoUrl',
     },
   },
 })
