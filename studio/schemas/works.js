@@ -2,8 +2,8 @@ import {defineField, defineType} from 'sanity'
 import Placeholder from '../components/Placeholder'
 
 export default defineType({
-  name: 'timeline',
-  title: 'Timeline',
+  name: 'works',
+  title: 'Released Works',
   type: 'document',
   fields: [
     defineField({
@@ -51,11 +51,11 @@ export default defineType({
 			}
     }),
     defineField({
-      name: 'summary',
-      title: 'Summary',
-      type: 'blockContent',
+      name: 'description',
+      title: 'Description',
+      type: 'string',
       options: {
-        maxLength: 800,
+        maxLength: 75,
       },
     }),
     defineField({
