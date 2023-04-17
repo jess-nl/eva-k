@@ -34,12 +34,9 @@ export default defineType({
     defineField({
       name: 'yearReleased',
       title: 'Year Released',
-      type: 'string',
-      components: {
-        input: Placeholder,
-      },
+      type: 'date',
 			options: {
-				placeholder: '2023'
+        dateFormat: 'YYYY',
 			}
     }),
     defineField({
