@@ -1,5 +1,12 @@
 import { PortableText } from "@portabletext/react";
-import { AspectRatio, Grid, GridItem, Text, Box } from "@chakra-ui/react";
+import {
+  AspectRatio,
+  Grid,
+  GridItem,
+  Text,
+  Box,
+  VStack,
+} from "@chakra-ui/react";
 import ptComponents from "../../hooks/richText";
 
 const Timeline = ({ timeline }: any) => {
@@ -10,23 +17,28 @@ const Timeline = ({ timeline }: any) => {
         gap={6}
         marginX="100px"
         marginBottom="10px"
+        display="flex"
       >
-        <GridItem w="100%" h="100%">
+        <GridItem w="100%" h="100%" alignSelf="flex-end">
           <Text color="#DBD47D" fontSize="lg">
             YEAR(S) OF RELEASE
           </Text>
         </GridItem>
-        <GridItem w="100%" h="100%">
+        <GridItem w="100%" h="100%" alignSelf="flex-end">
           <Text color="#DBD47D" fontSize="lg">
             TITLE
           </Text>
         </GridItem>
-        <GridItem w="100%" h="100%">
+        <GridItem w="100%" h="100%" alignSelf="flex-end">
           <Text color="#DBD47D" fontSize="lg">
             SUMMARY
           </Text>
         </GridItem>
-        <GridItem w="100%" h="100%"></GridItem>
+        <GridItem w="100%">
+          <Text color="#AE9E7E" fontSize="80px" textAlign="right">
+            Timeline
+          </Text>
+        </GridItem>
       </Grid>
       {timeline.length > 0 &&
         timeline.map(
@@ -43,6 +55,7 @@ const Timeline = ({ timeline }: any) => {
                 templateColumns="repeat(4, 1fr)"
                 gap={6}
                 marginX="100px"
+                mb="20px"
                 borderTop="4px"
                 borderColor="#DBD47D"
                 borderTopStyle="solid"
