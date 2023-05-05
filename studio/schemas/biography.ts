@@ -49,9 +49,9 @@ export default defineType({
           type: 'object',
           name: 'inline',
           fields: [
-            {name: 'company', type: 'string'},
+            {name: 'media', type: 'string'},
             {name: 'year', type: 'string'},
-            {name: 'author', type: 'string'},
+            {name: 'journalist', type: 'string'},
           ],
         },
       ],
