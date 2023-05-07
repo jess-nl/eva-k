@@ -5,6 +5,7 @@ const Contact = ({ contact }: any) => {
 
   return (
     <Box bg="#F4F3ED" pt={14}>
+      <div id="contact"></div>
       <Text color="#A695A5" fontSize="80px" marginX="100px">
         Work With Me
       </Text>

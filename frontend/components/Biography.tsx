@@ -7,6 +7,7 @@ const Biography = ({ biography }: any) => {
 
   return (
     <Box paddingTop="150px" paddingBottom="100px">
+      <div id="biography"></div>
       <Text marginX="100px" color="#A695A5" fontSize="80px" textAlign="right">
         Biography
       </Text>
