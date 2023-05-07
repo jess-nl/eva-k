@@ -2,10 +2,10 @@ import groq from "groq";
 import client from "../client";
 import { ChakraProvider } from "@chakra-ui/react";
 import Header from "../components/Header";
-import Timeline from "./post/timeline";
-import Works from "./post/works";
-import Biography from "./biography";
-import Contact from "./contact";
+import Timeline from "../components/Timeline";
+import Works from "../components/Works";
+import Biography from "../components/Biography";
+import Contact from "../components/Contact";
 
 const Index = (props: any) => {
   const { header, biography, timeline, works, contact } = props;
