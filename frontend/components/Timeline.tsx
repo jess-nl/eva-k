@@ -7,7 +7,7 @@ import {
   Box,
   VStack,
 } from "@chakra-ui/react";
-import ptComponents from "../../hooks/richText";
+import ptComponents from "../hooks/richText";
 
 const Timeline = ({ timeline }: any) => {
   return (
