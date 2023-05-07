@@ -1,3 +1,6 @@
+import Link from "next/link";
+import urlFor from "../hooks/image";
+import handleClickScroll from "@/hooks/handleClickScroll";
 import {
   Text,
   Flex,
@@ -7,7 +10,6 @@ import {
   AspectRatio,
   Stack,
 } from "@chakra-ui/react";
-import urlFor from "../hooks/image";
 
 const Header = ({ header }: any) => {
   const { title, mainImage, vimeoUrl } = header[0];
@@ -29,23 +31,43 @@ const Header = ({ header }: any) => {
           <VStack textAlign="right" spacing="100px">
             <Box p="4" w="360px">
               <Text color="#80687F" fontSize="3xl" lineHeight="80%">
-                About Me
+                <Link href="/about">About Me</Link>
               </Text>
               <Text color="#CFC500" fontSize="2xl">
                 fr | en
               </Text>
             </Box>
             <Box p="4" w="360px">
-              <Text color="#80687F" fontSize="4xl">
+              <Text
+                color="#80687F"
+                fontSize="4xl"
+                onClick={handleClickScroll("biography")}
+                cursor="pointer"
+              >
                 Biography
               </Text>
-              <Text color="#80687F" fontSize="4xl">
+              <Text
+                color="#80687F"
+                fontSize="4xl"
+                onClick={handleClickScroll("works")}
+                cursor="pointer"
+              >
                 Released Works
               </Text>
-              <Text color="#80687F" fontSize="4xl">
+              <Text
+                color="#80687F"
+                fontSize="4xl"
+                onClick={handleClickScroll("timeline")}
+                cursor="pointer"
+              >
                 Timeline
               </Text>
-              <Text color="#80687F" fontSize="4xl">
+              <Text
+                color="#80687F"
+                fontSize="4xl"
+                onClick={handleClickScroll("contact")}
+                cursor="pointer"
+              >
                 Work With Me
               </Text>
             </Box>

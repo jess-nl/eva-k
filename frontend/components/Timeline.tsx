@@ -5,13 +5,13 @@ import {
   GridItem,
   Text,
   Box,
-  VStack,
 } from "@chakra-ui/react";
 import ptComponents from "../hooks/richText";
 
 const Timeline = ({ timeline }: any) => {
   return (
     <Box bg="#80687F" paddingTop="150px" paddingBottom="100px">
+      <div id="timeline"></div>
       <Grid
         templateColumns="repeat(4, 1fr)"
         gap={6}
