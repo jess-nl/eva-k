@@ -3,6 +3,7 @@ import { AspectRatio, Grid, GridItem, Text, Box } from "@chakra-ui/react";
 const Works = ({ works }: any) => {
   return (
     <Box bg="#F4F3ED" paddingTop="150px" paddingBottom="100px">
+      <div id="works"></div>
       <Grid
         templateColumns="repeat(4, 1fr)"
         gap={6}
