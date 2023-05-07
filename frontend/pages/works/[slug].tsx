@@ -29,7 +29,7 @@ const ptComponents = {
   },
 };
 
-const Post = ({ works }: any) => {
+const PostWorks = ({ works }: any) => {
   const {
     title = "Missing title",
     vimeoUrl,
@@ -75,4 +75,4 @@ export async function getStaticProps(context: any) {
   };
 }
 
-export default Post;
+export default PostWorks;
