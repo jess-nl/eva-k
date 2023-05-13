@@ -38,37 +38,25 @@ const Header = ({ header }: any) => {
               </Text>
             </Box>
             <Box p="4" w="360px">
-              <Text
-                color="#80687F"
-                fontSize="4xl"
-                onClick={handleClickScroll("biography")}
-                cursor="pointer"
-              >
-                Biography
+              <Text color="#80687F" fontSize="4xl" cursor="pointer">
+                <Link href="/#biography" passHref scroll={false}>
+                  Biography
+                </Link>
               </Text>
-              <Text
-                color="#80687F"
-                fontSize="4xl"
-                onClick={handleClickScroll("works")}
-                cursor="pointer"
-              >
-                Released Works
+              <Text color="#80687F" fontSize="4xl" cursor="pointer">
+                <Link href="/#works" passHref scroll={false}>
+                  Released Works
+                </Link>
               </Text>
-              <Text
-                color="#80687F"
-                fontSize="4xl"
-                onClick={handleClickScroll("timeline")}
-                cursor="pointer"
-              >
-                Timeline
+              <Text color="#80687F" fontSize="4xl" cursor="pointer">
+                <Link href="/#timeline" passHref scroll={false}>
+                  Timeline
+                </Link>
               </Text>
-              <Text
-                color="#80687F"
-                fontSize="4xl"
-                onClick={handleClickScroll("contact")}
-                cursor="pointer"
-              >
-                Work With Me
+              <Text color="#80687F" fontSize="4xl" cursor="pointer">
+                <Link href="/#contact" passHref scroll={false}>
+                  Work With Me
+                </Link>
               </Text>
             </Box>
           </VStack>
