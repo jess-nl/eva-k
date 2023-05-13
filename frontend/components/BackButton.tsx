@@ -9,13 +9,13 @@ const BackButton = ({ color = null, noHash = null }: any) => {
   return (
     <Box>
       {noHash ? (
-        <Link href="/" style={{ fontSize: "3.75rem", color }}>
+        <Link href="/" style={{ fontSize: "5rem", color }}>
           ←
         </Link>
       ) : (
         <button
           onClick={() => router.back()}
-          style={{ fontSize: "3.75rem", color }}
+          style={{ fontSize: "5rem", color }}
         >
           ←
         </button>
