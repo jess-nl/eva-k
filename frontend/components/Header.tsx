@@ -87,7 +87,7 @@ const Header = ({ header }: any) => {
           }}
         />
       </Box>
-      <Box zIndex={-1} position="absolute" display="block" w="100%" h="100%">
+      <Box zIndex={-1} position="absolute" display="block" w="100%">
         <Box maxW="900px" h="370px" overflow="hidden" mx="auto">
           <AspectRatio maxW="900px" ratio={16 / 9} mt="-70px">
             <iframe

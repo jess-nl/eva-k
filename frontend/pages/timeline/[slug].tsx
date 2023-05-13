@@ -1,49 +1,13 @@
 import groq from "groq";
-import imageUrlBuilder from "@sanity/image-url";
-import { PortableText } from "@portabletext/react";
 import client from "../../client";
-
-function urlFor(source: any) {
-  return imageUrlBuilder(client).image(source);
-}
-
-const ptComponents = {
-  types: {
-    image: ({ value }: any) => {
-      if (!value?.asset?._ref) {
-        return null;
-      }
-      return (
-        <img
-          alt={value.alt || " "}
-          loading="lazy"
-          src={urlFor(value)
-            .width(320)
-            .height(240)
-            .fit("max")
-            .auto("format")
-            .url()}
-        />
-      );
-    },
-  },
-};
+import Post from "@/components/Post";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const PostTimeline = ({ timeline }: any) => {
-  const {
-    title = "Missing title",
-    vimeoUrl,
-    yearReleased,
-    longSummary
-  } = timeline;
   return (
-    <article>
-      <h1>{title}</h1>
-      <h2>{vimeoUrl}</h2>
-      <h3>{yearReleased}</h3>
-      <PortableText value={longSummary} components={ptComponents} />
-
-    </article>
+    <ChakraProvider>
+      <Post post={timeline} />
+    </ChakraProvider>
   );
 };
 

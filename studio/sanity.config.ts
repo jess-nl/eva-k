@@ -4,7 +4,7 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
-const singletonTypes = new Set(['header', 'biography', 'contact'])
+const singletonTypes = new Set(['header', 'biography', 'contact', 'about'])
 
 const singletonListItem = (S: any, typeName: string, title?: string) =>
   S.listItem()
@@ -28,6 +28,7 @@ export default defineConfig({
             singletonListItem(S, 'header', 'Header'),
             singletonListItem(S, 'biography', 'Biography'),
             singletonListItem(S, 'contact', 'Work With Me'),
+            singletonListItem(S, 'about', 'About Me'),
             S.documentTypeListItem('works').title('Released Works'),
             S.documentTypeListItem('timeline').title('Timeline'),
           ]),
