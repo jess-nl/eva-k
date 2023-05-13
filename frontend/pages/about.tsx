@@ -4,6 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import PortableTextComponent from "../hooks/richText";
 import urlFor from "../hooks/image";
 import { Text, Flex, Box, Spacer, Stack } from "@chakra-ui/react";
+import BackButton from "@/components/BackButton";
 
 const About = ({ about }: any) => {
   const { mainImage, longSummary } = about[0];
@@ -13,9 +14,7 @@ const About = ({ about }: any) => {
         <Flex>
           <Box bg="#80687F" width="100%">
             <Flex>
-              <Text fontSize="5xl" mr={3} color="#CFC500">
-                →
-              </Text>
+              <BackButton noHash />
               <Box mx="20%" mt="100px">
                 <PortableTextComponent content={longSummary} fontSize="lg" />
               </Box>
