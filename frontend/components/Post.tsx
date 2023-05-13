@@ -8,7 +8,7 @@ const Post = ({ post }: any) => {
   return (
     <Box bg="black">
       <Grid templateColumns="repeat(6, 1fr)" minHeight="100vh">
-        <GridItem colSpan={2} px={20} pt="80px">
+        <GridItem colSpan={2} px={20} pt="50px">
           <BackButton color="white" />
         </GridItem>
         <GridItem colSpan={4} px={20} h="100%" pt="100px">
