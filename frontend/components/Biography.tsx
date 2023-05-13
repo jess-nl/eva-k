@@ -1,10 +1,8 @@
-import { PortableText } from "@portabletext/react";
 import { Grid, GridItem, Text, Box, Stack, Flex } from "@chakra-ui/react";
-import ptComponents from "../hooks/richText";
+import PortableTextComponent from "../hooks/richText";
 
 const Biography = ({ biography }: any) => {
   const { latest, press, awards } = biography[0];
-
   return (
     <Box paddingTop="150px" paddingBottom="100px">
       <div id="biography"></div>
@@ -23,9 +21,9 @@ const Biography = ({ biography }: any) => {
         {biography.length > 0 && (
           <>
             <GridItem w="100%" h="100%" marginTop={7}>
-              <PortableText
-                value={biography[0].biography}
-                components={ptComponents}
+              <PortableTextComponent
+                content={biography[0].biography}
+                fontSize="sm"
               />
             </GridItem>
             <GridItem w="100%" h="100%" marginTop={4}>
@@ -75,7 +73,7 @@ const Biography = ({ biography }: any) => {
               <Text fontSize="4xl" mb={4}>
                 Awards
               </Text>
-              <PortableText value={awards} components={ptComponents} />
+              <PortableTextComponent content={awards} fontSize="sm" />
             </GridItem>
           </>
         )}

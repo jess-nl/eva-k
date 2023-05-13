@@ -1,31 +1,48 @@
-import groq from "groq";
 import client from "../client";
+import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
+import { Text } from "@chakra-ui/react";
 
 function urlFor(source: any) {
   return imageUrlBuilder(client).image(source);
 }
 
-const ptComponents = {
-  types: {
-    image: ({ value }: any) => {
-      if (!value?.asset?._ref) {
-        return null;
-      }
-      return (
-        <img
-          alt={value.alt || " "}
-          loading="lazy"
-          src={urlFor(value)
-            .width(320)
-            .height(240)
-            .fit("max")
-            .auto("format")
-            .url()}
-        />
-      );
-    },
-  },
+const Image = ({ children }: any) => {
+  if (!children?.asset?._ref) {
+    return null;
+  }
+  return (
+    <img
+      alt={children.alt || " "}
+      loading="lazy"
+      src={urlFor(children)
+        .width(320)
+        .height(240)
+        .fit("max")
+        .auto("format")
+        .url()}
+    />
+  );
 };
 
-export default ptComponents;
+const PortableTextComponent = ({
+  content,
+  fontSize = null,
+  color = null,
+}: any) => {
+  let componentUsed = {
+    types: {
+      image: Image,
+    },
+    block: {
+      normal: ({ children }: any) => (
+        <Text fontSize={fontSize} color={color}>
+          {children}
+        </Text>
+      ),
+    },
+  };
+  return <PortableText value={content} components={componentUsed} />;
+};
+
+export default PortableTextComponent;

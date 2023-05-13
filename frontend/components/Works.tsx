@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AspectRatio, Grid, GridItem, Text, Box } from "@chakra-ui/react";
 
 const Works = ({ works }: any) => {
@@ -31,20 +32,29 @@ const Works = ({ works }: any) => {
         borderTopStyle="solid"
       >
         {works.length > 0 &&
-          works.map(({ _id, description = "", vimeoUrl = "" }: any) => (
-            <div key={_id}>
-              <GridItem w="100%" h="100%" marginTop="12px">
-                <AspectRatio ratio={16 / 9} mb="10px">
-                  <iframe
-                    title="tbd"
-                    src={`${vimeoUrl}?autoplay=1&autopause=0&muted=1&background=1`}
-                    allowFullScreen
-                  />
-                </AspectRatio>
-                <Text color="black">{description}</Text>
-              </GridItem>
-            </div>
-          ))}
+          works.map(
+            ({ _id, description = "", vimeoUrl = "", slug = [] }: any) => (
+              <div key={_id}>
+                <Link
+                  href={{
+                    pathname: "/works/[slug]",
+                    query: { slug: slug.current },
+                  }}
+                >
+                  <GridItem w="100%" h="100%" marginTop="12px">
+                    <AspectRatio ratio={16 / 9} mb="10px">
+                      <iframe
+                        title="tbd"
+                        src={`${vimeoUrl}?autoplay=1&autopause=0&muted=1&background=1`}
+                        allowFullScreen
+                      />
+                    </AspectRatio>
+                    <Text color="black">{description}</Text>
+                  </GridItem>
+                </Link>
+              </div>
+            )
+          )}
       </Grid>
     </Box>
   );

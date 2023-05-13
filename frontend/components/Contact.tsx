@@ -1,4 +1,5 @@
-import { Text, Flex, Box, Spacer, Stack, Link } from "@chakra-ui/react";
+import Footer from "./Footer";
+import { Text, Flex, Box, Spacer, Link } from "@chakra-ui/react";
 
 const Contact = ({ contact }: any) => {
   const { agentEmail, agentName, agentPhone, name, socials } = contact[0];
@@ -33,27 +34,18 @@ const Contact = ({ contact }: any) => {
             {name}
           </Text>
           {socials.length > 0 &&
-            socials.map((social: any) => (
-              <Link href={social.url} color="#80687F" isExternal>
-                <Text fontSize="4xl" color="#80687F" textAlign="right">
-                  {social.title}
-                </Text>
-              </Link>
+            socials.map((social: any, id: any) => (
+              <div key={id}>
+                <Link href={social.url} color="#80687F" isExternal>
+                  <Text fontSize="4xl" color="#80687F" textAlign="right">
+                    {social.title}
+                  </Text>
+                </Link>
+              </div>
             ))}
         </Box>
       </Flex>
-      <Stack
-        mt="120px"
-        marginX="100px"
-        borderTop="4px"
-        borderColor="black"
-        borderTopStyle="solid"
-      >
-        <Text fontSize="xs" mt={3} mb={5}>
-          Copyright &copy; Eva Kabuya. Select portrait photographer by Mallory
-          Lowe Mpoka.
-        </Text>
-      </Stack>
+      <Footer color="black" />
     </Box>
   );
 };

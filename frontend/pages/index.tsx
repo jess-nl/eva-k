@@ -6,11 +6,13 @@ import Timeline from "../components/Timeline";
 import Works from "../components/Works";
 import Biography from "../components/Biography";
 import Contact from "../components/Contact";
+import ScrollArrow from "@/components/ScrollArrow";
 
 const Index = (props: any) => {
   const { header, biography, timeline, works, contact } = props;
   return (
     <ChakraProvider>
+      <ScrollArrow />
       <Header header={header} />
       <Biography biography={biography} />
       <Works works={works} />

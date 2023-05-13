@@ -1,8 +1,8 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'header',
-  title: 'Header',
+  name: 'about',
+  title: 'About Me',
   type: 'document',
   fields: [
     defineField({
@@ -19,9 +19,9 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'vimeoUrl',
-      title: 'Vimeo Video URL',
-      type: 'string',
+      name: 'longSummary',
+      title: 'Long Summary',
+      type: 'blockContent',
     }),
   ],
 })

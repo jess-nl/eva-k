@@ -1,12 +1,6 @@
-import { PortableText } from "@portabletext/react";
-import {
-  AspectRatio,
-  Grid,
-  GridItem,
-  Text,
-  Box,
-} from "@chakra-ui/react";
-import ptComponents from "../hooks/richText";
+import Link from "next/link";
+import { AspectRatio, Grid, GridItem, Text, Box } from "@chakra-ui/react";
+import PortableTextComponent from "../hooks/richText";
 
 const Timeline = ({ timeline }: any) => {
   return (
@@ -44,45 +38,56 @@ const Timeline = ({ timeline }: any) => {
         timeline.map(
           ({
             _id,
-            _type,
             title = "",
             yearReleased = "",
             summary = [],
             vimeoUrl = "",
+            slug = [],
           }: any) => (
             <div key={_id}>
-              <Grid
-                templateColumns="repeat(4, 1fr)"
-                gap={6}
-                marginX="100px"
-                mb="20px"
-                borderTop="4px"
-                borderColor="#DBD47D"
-                borderTopStyle="solid"
+              <Link
+                href={{
+                  pathname: "/timeline/[slug]",
+                  query: { slug: slug.current },
+                }}
               >
-                <GridItem w="100%" h="100%" marginTop="12px">
-                  <Text color="#DBD47D" fontSize="6xl">
-                    {yearReleased}
-                  </Text>
-                </GridItem>
-                <GridItem w="100%" h="100%" marginTop="12px">
-                  <Text color="#DBD47D" fontSize="lg">
-                    {title}
-                  </Text>
-                </GridItem>
-                <GridItem w="100%" h="100%" marginTop="12px">
-                  <PortableText value={summary} components={ptComponents} />
-                </GridItem>
-                <GridItem w="100%" h="100%" marginTop="12px">
-                  <AspectRatio maxW="480px" ratio={16 / 9}>
-                    <iframe
-                      title="tbd"
-                      src={`${vimeoUrl}?autoplay=1&autopause=0&muted=1&background=1`}
-                      allowFullScreen
+                <Grid
+                  templateColumns="repeat(4, 1fr)"
+                  gap={6}
+                  marginX="100px"
+                  mb="20px"
+                  borderTop="4px"
+                  borderColor="#DBD47D"
+                  borderTopStyle="solid"
+                >
+                  <GridItem w="100%" h="100%" marginTop="12px">
+                    <Text color="#DBD47D" fontSize="6xl">
+                      {yearReleased}
+                    </Text>
+                  </GridItem>
+                  <GridItem w="100%" h="100%" marginTop="12px">
+                    <Text color="#DBD47D" fontSize="lg">
+                      {title}
+                    </Text>
+                  </GridItem>
+                  <GridItem w="100%" h="100%" marginTop="12px">
+                    <PortableTextComponent
+                      content={summary}
+                      fontSize="lg"
+                      color="#DBD47D"
                     />
-                  </AspectRatio>
-                </GridItem>
-              </Grid>
+                  </GridItem>
+                  <GridItem w="100%" h="100%" marginTop="12px">
+                    <AspectRatio maxW="480px" ratio={16 / 9}>
+                      <iframe
+                        title="tbd"
+                        src={`${vimeoUrl}?autoplay=1&autopause=0&muted=1&background=1`}
+                        allowFullScreen
+                      />
+                    </AspectRatio>
+                  </GridItem>
+                </Grid>
+              </Link>
             </div>
           )
         )}
