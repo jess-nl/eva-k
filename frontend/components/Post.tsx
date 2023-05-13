@@ -1,7 +1,7 @@
-import Link from "next/link";
 import PortableTextComponent from "../hooks/richText";
 import Footer from "@/components/Footer";
 import { Grid, GridItem, Box, Text, AspectRatio } from "@chakra-ui/react";
+import BackButton from "./BackButton";
 
 const Post = ({ post }: any) => {
   const { title = "Missing title", vimeoUrl, yearReleased, longSummary } = post;
@@ -9,11 +9,7 @@ const Post = ({ post }: any) => {
     <Box bg="black">
       <Grid templateColumns="repeat(6, 1fr)" minHeight="100vh">
         <GridItem colSpan={2} px={20} pt="80px">
-          <Box>
-            <Link href="/" style={{ fontSize: "3.75rem", color: "white" }}>
-              ←
-            </Link>
-          </Box>
+          <BackButton />
         </GridItem>
         <GridItem colSpan={4} px={20} h="100%" pt="100px">
           <Grid
