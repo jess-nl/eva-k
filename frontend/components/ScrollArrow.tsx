@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 import { Text } from "@chakra-ui/react";
 
@@ -36,7 +37,9 @@ const ScrollArrow = () => {
       color="#A695A5"
       right="40px"
     >
-      ↑
+      <Link href="/" passHref scroll={false}>
+        ↑
+      </Link>
     </Text>
   );
 };
