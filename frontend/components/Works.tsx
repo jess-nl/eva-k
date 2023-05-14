@@ -1,5 +1,8 @@
 import Link from "next/link";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { AspectRatio, Grid, GridItem, Text, Box } from "@chakra-ui/react";
+import responsiveCarousel from "@/hooks/responsiveCarousel";
 
 const Works = ({ works }: any) => {
   return (
@@ -23,39 +26,66 @@ const Works = ({ works }: any) => {
           </Text>
         </GridItem>
       </Grid>
-      <Grid
-        templateColumns="repeat(3, 1fr)"
-        gap={6}
+      <Box
         marginX="100px"
         borderTop="4px"
         borderColor="black"
         borderTopStyle="solid"
+        mb="12px"
       >
-        {works.length > 0 &&
-          works.map(
-            ({ _id, description = "", vimeoUrl = "", slug = [] }: any) => (
-              <div key={_id}>
-                <Link
-                  href={{
-                    pathname: "/works/[slug]",
-                    query: { slug: slug.current },
-                  }}
-                >
-                  <GridItem w="100%" h="100%" marginTop="12px">
-                    <AspectRatio ratio={16 / 9} mb="10px">
-                      <iframe
-                        title="tbd"
-                        src={`${vimeoUrl}?autoplay=1&autopause=0&muted=1&background=1`}
-                        allowFullScreen
-                      />
-                    </AspectRatio>
-                    <Text color="black">{description}</Text>
-                  </GridItem>
-                </Link>
-              </div>
-            )
-          )}
-      </Grid>
+        <Carousel
+          responsive={responsiveCarousel}
+          customLeftArrow={
+            <Text
+              left="calc(4% + 1px)"
+              position="absolute"
+              color="white"
+              zIndex="1"
+              cursor="pointer"
+              fontSize="6xl"
+            >
+              ←
+            </Text>
+          }
+          customRightArrow={
+            <Text
+              right="calc(4% + 1px)"
+              position="absolute"
+              color="white"
+              zIndex="1"
+              cursor="pointer"
+              fontSize="6xl"
+            >
+              →
+            </Text>
+          }
+        >
+          {works.length > 0 &&
+            works.map(
+              ({ _id, description = "", vimeoUrl = "", slug = [] }: any) => (
+                <div key={_id}>
+                  <Link
+                    href={{
+                      pathname: "/works/[slug]",
+                      query: { slug: slug.current },
+                    }}
+                  >
+                    <GridItem w="98%" h="100%" mt="12px">
+                      <AspectRatio ratio={16 / 9} mb="10px">
+                        <iframe
+                          title="tbd"
+                          src={`${vimeoUrl}?autoplay=1&autopause=0&muted=1&background=1`}
+                          allowFullScreen
+                        />
+                      </AspectRatio>
+                      <Text color="black">{description}</Text>
+                    </GridItem>
+                  </Link>
+                </div>
+              )
+            )}
+        </Carousel>
+      </Box>
     </Box>
   );
 };
