@@ -1,14 +1,9 @@
 import groq from "groq";
 import client from "../../client";
 import Post from "@/components/Post";
-import { ChakraProvider } from "@chakra-ui/react";
 
 const PostWorks = ({ works }: any) => {
-  return (
-    <ChakraProvider>
-      <Post post={works} />
-    </ChakraProvider>
-  );
+  return <Post post={works} />;
 };
 
 const query = groq`*[_type == "works" && slug.current == $slug][0]{

@@ -1,6 +1,5 @@
 import groq from "groq";
 import client from "../client";
-import { ChakraProvider } from "@chakra-ui/react";
 import PortableTextComponent from "../hooks/richText";
 import urlFor from "../hooks/image";
 import { Flex, Box, Grid, GridItem } from "@chakra-ui/react";
@@ -10,7 +9,7 @@ import Footer from "@/components/Footer";
 const About = ({ about }: any) => {
   const { mainImage, longSummary } = about[0];
   return (
-    <ChakraProvider>
+    <>
       <Box minHeight="100%" w="100%" h="100%">
         <Flex h="100vh">
           <Box bg="#80687F" width="100%">
@@ -41,7 +40,7 @@ const About = ({ about }: any) => {
       <Box position="fixed" bottom="0" zIndex="1" w="100%">
         <Footer />
       </Box>
-    </ChakraProvider>
+    </>
   );
 };
 

@@ -1,14 +1,9 @@
 import groq from "groq";
 import client from "../../client";
 import Post from "@/components/Post";
-import { ChakraProvider } from "@chakra-ui/react";
 
 const PostTimeline = ({ timeline }: any) => {
-  return (
-    <ChakraProvider>
-      <Post post={timeline} />
-    </ChakraProvider>
-  );
+  return <Post post={timeline} />;
 };
 
 const query = groq`*[_type == "timeline" && slug.current == $slug][0]{
