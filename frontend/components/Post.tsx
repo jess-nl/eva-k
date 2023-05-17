@@ -7,13 +7,34 @@ const Post = ({ post }: any) => {
   const { title = "Missing title", vimeoUrl, yearReleased, longSummary } = post;
   return (
     <Box bg="black">
-      <Grid templateColumns="repeat(6, 1fr)" minHeight="100vh">
-        <GridItem colSpan={2} px={20} pt="50px">
+      <GridItem
+        display={{ base: "block", md: "block", lg: "none" }}
+        colSpan={2}
+        px={{ base: 5, md: 5, lg: 20 }}
+        pt="50px"
+      >
+        <BackButton color="white" />
+      </GridItem>
+      <Grid
+        templateColumns={{ base: "none", md: "none", lg: "repeat(6, 1fr)" }}
+        minHeight="100vh"
+      >
+        <GridItem
+          display={{ base: "none", md: "none", lg: "block" }}
+          colSpan={2}
+          px={{ base: 5, md: 5, lg: 20 }}
+          pt="50px"
+        >
           <BackButton color="white" />
         </GridItem>
-        <GridItem colSpan={4} px={20} h="100%" pt="100px">
+        <GridItem
+          colSpan={4}
+          px={{ base: 5, md: 5, lg: 20 }}
+          h="100%"
+          pt="100px"
+        >
           <Grid
-            templateColumns="repeat(4, 1fr)"
+            templateColumns={{ base: "none", md: "none", lg: "repeat(4, 1fr)" }}
             gap={6}
             marginBottom="10px"
             display="flex"
@@ -25,7 +46,7 @@ const Post = ({ post }: any) => {
             </GridItem>
           </Grid>
           <Grid
-            templateColumns="repeat(3, 1fr)"
+            templateColumns={{ base: "none", md: "none", lg: "repeat(3, 1fr)" }}
             gap={6}
             borderTop="4px"
             borderColor="white"

@@ -17,8 +17,15 @@ const Header = ({ header }: any) => {
 
   return (
     <Stack display="block" h="900px">
-      <Stack position="absolute" w="100%">
-        <Flex p="14">
+      <Stack
+        position={{ base: "initial", md: "initial", lg: "absolute" }}
+        w="100%"
+      >
+        <Box
+          p="14"
+          display={{ base: "block", md: "block", lg: "flex" }}
+          flexDirection={{ base: "column", md: "column", lg: "initial" }}
+        >
           <Box>
             {splittedTitle.map((titlePiece: any, id: any) => (
               <Text fontSize="110px" lineHeight="110%" key={id}>
@@ -29,7 +36,11 @@ const Header = ({ header }: any) => {
           </Box>
           <Spacer />
           <VStack textAlign="right" spacing="100px">
-            <Box p="4" w="360px">
+            <Box
+              p="4"
+              w="360px"
+              display={{ base: "none", md: "none", lg: "block" }}
+            >
               <Text color="#80687F" fontSize="3xl" lineHeight="80%">
                 <Link href="/about">About Me</Link>
               </Text>
@@ -37,7 +48,15 @@ const Header = ({ header }: any) => {
                 fr | en
               </Text>
             </Box>
-            <Box p="4" w="360px">
+            <Box>
+              <Text
+                color="#80687F"
+                fontSize="4xl"
+                cursor="pointer"
+                display={{ base: "block", md: "block", lg: "none" }}
+              >
+                <Link href="/about">About</Link>
+              </Text>
               <Text color="#80687F" fontSize="4xl" cursor="pointer">
                 <Link href="/#biography" passHref scroll={false}>
                   Biography
@@ -60,10 +79,10 @@ const Header = ({ header }: any) => {
               </Text>
             </Box>
           </VStack>
-        </Flex>
+        </Box>
       </Stack>
       <Box w="100%" h="350px" />
-      <Box>
+      <Box display={{ base: "none", md: "none", lg: "block" }}>
         <img
           src={urlFor(mainImage).height(400).maxHeight(900).url()}
           style={{
@@ -75,7 +94,12 @@ const Header = ({ header }: any) => {
           }}
         />
       </Box>
-      <Box zIndex={-1} position="absolute" display="block" w="100%">
+      <Box
+        zIndex={-1}
+        position="absolute"
+        w="100%"
+        display={{ base: "none", md: "none", lg: "block" }}
+      >
         <Box maxW="900px" h="370px" overflow="hidden" mx="auto">
           <AspectRatio maxW="900px" ratio={16 / 9} mt="-70px">
             <iframe

@@ -11,23 +11,31 @@ const Works = ({ works }: any) => {
       <Grid
         templateColumns="repeat(4, 1fr)"
         gap={6}
-        marginX="100px"
         marginBottom="10px"
         display="flex"
+        marginX={{ base: "20px", md: "20px", lg: "100px" }}
       >
-        <GridItem w="100%" alignSelf="flex-end">
+        <GridItem
+          w="100%"
+          alignSelf="flex-end"
+          display={{ base: "none", md: "none", lg: "initial" }}
+        >
           <Text color="black" fontSize="lg">
             ↓ CLICK ON VIDEO TO VIEW
           </Text>
         </GridItem>
         <GridItem w="100%">
-          <Text color="#A391A0" fontSize="80px" textAlign="right">
+          <Text
+            color="#A391A0"
+            fontSize={{ base: "5xl", md: "5xl", lg: "80px" }}
+            textAlign={{ base: "initial", md: "initial", lg: "right" }}
+          >
             Released Works
           </Text>
         </GridItem>
       </Grid>
       <Box
-        marginX="100px"
+        marginX={{ base: "20px", md: "20px", lg: "100px" }}
         borderTop="4px"
         borderColor="black"
         borderTopStyle="solid"

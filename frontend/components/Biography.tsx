@@ -6,13 +6,19 @@ const Biography = ({ biography }: any) => {
   return (
     <Box paddingTop="150px" paddingBottom="100px">
       <div id="biography"></div>
-      <Text marginX="100px" color="#A695A5" fontSize="80px" textAlign="right">
+      <Text
+        color="#A695A5"
+        marginX={{ base: "20px", md: "20px", lg: "100px" }}
+        fontSize={{ base: "5xl", md: "5xl", lg: "80px" }}
+        textAlign={{ base: "initial", md: "initial", lg: "right" }}
+      >
         Biography
       </Text>
       <Grid
-        templateColumns="repeat(4, 1fr)"
+        display={{ base: "block", md: "block", lg: "grid" }}
+        templateColumns={{ base: "none", md: "none", lg: "repeat(4, 1fr)" }}
         gap={6}
-        marginX="100px"
+        marginX={{ base: "20px", md: "20px", lg: "100px" }}
         mb="20px"
         borderTop="4px"
         borderColor="black"
@@ -27,25 +33,66 @@ const Biography = ({ biography }: any) => {
               />
             </GridItem>
             <GridItem w="100%" h="100%" marginTop={4}>
-              <Text fontSize="4xl" textAlign="center" mb={4}>
+              <Text
+                fontSize="4xl"
+                textAlign={{ base: "initial", md: "initial", lg: "center" }}
+                mb={4}
+              >
                 Latest
               </Text>
               {latest.length > 0 &&
                 latest.map((latest: any, id: any) => (
                   <Stack key={id} spacing="2px" mb={6}>
-                    <Text fontSize="sm" textAlign="center" as="b">
+                    <Text
+                      fontSize="sm"
+                      textAlign={{
+                        base: "initial",
+                        md: "initial",
+                        lg: "center",
+                      }}
+                      as="b"
+                    >
                       {latest.title}
                     </Text>
-                    <Text fontSize="sm" textAlign="center" as="i">
+                    <Text
+                      fontSize="sm"
+                      textAlign={{
+                        base: "initial",
+                        md: "initial",
+                        lg: "center",
+                      }}
+                      as="i"
+                    >
                       {latest.stage}
                     </Text>
-                    <Text fontSize="sm" textAlign="center">
+                    <Text
+                      fontSize="sm"
+                      textAlign={{
+                        base: "initial",
+                        md: "initial",
+                        lg: "center",
+                      }}
+                    >
                       {latest.mediaType}
                     </Text>
-                    <Text fontSize="sm" textAlign="center">
+                    <Text
+                      fontSize="sm"
+                      textAlign={{
+                        base: "initial",
+                        md: "initial",
+                        lg: "center",
+                      }}
+                    >
                       {latest.role}
                     </Text>
-                    <Text fontSize="sm" textAlign="center">
+                    <Text
+                      fontSize="sm"
+                      textAlign={{
+                        base: "initial",
+                        md: "initial",
+                        lg: "center",
+                      }}
+                    >
                       {latest.company}
                     </Text>
                   </Stack>
