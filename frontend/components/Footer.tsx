@@ -4,7 +4,7 @@ const Footer = ({ color }: any) => {
   return (
     <Stack
       mt="120px"
-      marginX="100px"
+      marginX={{ base: "20px", md: "20px", lg: "100px" }}
       borderTop="4px"
       borderColor={color}
       borderTopStyle="solid"
