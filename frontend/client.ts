@@ -1,8 +1,7 @@
-// client.ts
-import sanityClient from "@sanity/client";
+import { createClient } from "@sanity/client";
 
-export default sanityClient({
-  projectId: "79m64vwp", // you can find this in sanity.json
-  dataset: "production", // or the name you chose in step 1
+export default createClient({
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: "production",
   useCdn: true, // `false` if you want to ensure fresh data
 });

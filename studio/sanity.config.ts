@@ -16,7 +16,7 @@ export default defineConfig({
   name: 'default',
   title: 'eva-k',
 
-  projectId: '79m64vwp',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID as string,
   dataset: 'production',
 
   plugins: [
