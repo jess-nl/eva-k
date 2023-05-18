@@ -53,7 +53,8 @@ const Timeline = ({ timeline }: any) => {
           </Text>
         </GridItem>
       </Grid>
-      {timeline.length > 0 &&
+      {timeline &&
+        timeline.length > 0 &&
         timeline.map(
           ({
             _id,
@@ -114,24 +115,28 @@ const Timeline = ({ timeline }: any) => {
                     h="100%"
                     marginTop={{ base: "initial", md: "initial", lg: "12px" }}
                   >
-                    <PortableTextComponent
-                      content={summary}
-                      fontSize="lg"
-                      color="#DBD47D"
-                    />
+                    {summary && (
+                      <PortableTextComponent
+                        content={summary}
+                        fontSize="lg"
+                        color="#DBD47D"
+                      />
+                    )}
                   </GridItem>
                   <GridItem
                     w="100%"
                     h="100%"
                     marginTop={{ base: "initial", md: "initial", lg: "12px" }}
                   >
-                    <AspectRatio maxW="480px" ratio={16 / 9}>
-                      <iframe
-                        title="tbd"
-                        src={`${vimeoUrl}?autoplay=1&autopause=0&muted=1&background=1`}
-                        allowFullScreen
-                      />
-                    </AspectRatio>
+                    {vimeoUrl && (
+                      <AspectRatio maxW="480px" ratio={16 / 9}>
+                        <iframe
+                          title="tbd"
+                          src={`${vimeoUrl}?autoplay=1&autopause=0&muted=1&background=1`}
+                          allowFullScreen
+                        />
+                      </AspectRatio>
+                    )}
                   </GridItem>
                 </Grid>
               </Link>

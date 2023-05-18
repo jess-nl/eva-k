@@ -53,21 +53,25 @@ const Post = ({ post }: any) => {
             borderTopStyle="solid"
           />
           <GridItem w="100%" h="100%" marginTop="12px">
-            <AspectRatio ratio={16 / 9} mb="10px">
-              <iframe
-                title="tbd"
-                src={`${vimeoUrl}?autoplay=1&autopause=0&muted=1&background=1`}
-                allowFullScreen
-              />
-            </AspectRatio>
+            {vimeoUrl && (
+              <AspectRatio ratio={16 / 9} mb="10px">
+                <iframe
+                  title="tbd"
+                  src={`${vimeoUrl}?autoplay=1&autopause=0&muted=1&background=1`}
+                  allowFullScreen
+                />
+              </AspectRatio>
+            )}
             <Text color="white" mb="1rem" fontSize="sm">
               {yearReleased}
             </Text>
-            <PortableTextComponent
-              content={longSummary}
-              fontSize="sm"
-              color="white"
-            />
+            {longSummary && (
+              <PortableTextComponent
+                content={longSummary}
+                fontSize="sm"
+                color="white"
+              />
+            )}
           </GridItem>
         </GridItem>
       </Grid>

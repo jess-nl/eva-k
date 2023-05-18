@@ -24,106 +24,106 @@ const Biography = ({ biography }: any) => {
         borderColor="black"
         borderTopStyle="solid"
       >
-        {biography.length > 0 && (
-          <>
-            <GridItem w="100%" h="100%" marginTop={7}>
-              <PortableTextComponent
-                content={biography[0].biography}
-                fontSize="sm"
-              />
-            </GridItem>
-            <GridItem w="100%" h="100%" marginTop={4}>
-              <Text
-                fontSize="4xl"
-                textAlign={{ base: "initial", md: "initial", lg: "center" }}
-                mb={4}
-              >
-                Latest
-              </Text>
-              {latest.length > 0 &&
-                latest.map((latest: any, id: any) => (
-                  <Stack key={id} spacing="2px" mb={6}>
-                    <Text
-                      fontSize="sm"
-                      textAlign={{
-                        base: "initial",
-                        md: "initial",
-                        lg: "center",
-                      }}
-                      as="b"
-                    >
-                      {latest.title}
-                    </Text>
-                    <Text
-                      fontSize="sm"
-                      textAlign={{
-                        base: "initial",
-                        md: "initial",
-                        lg: "center",
-                      }}
-                      as="i"
-                    >
-                      {latest.stage}
-                    </Text>
-                    <Text
-                      fontSize="sm"
-                      textAlign={{
-                        base: "initial",
-                        md: "initial",
-                        lg: "center",
-                      }}
-                    >
-                      {latest.mediaType}
-                    </Text>
-                    <Text
-                      fontSize="sm"
-                      textAlign={{
-                        base: "initial",
-                        md: "initial",
-                        lg: "center",
-                      }}
-                    >
-                      {latest.role}
-                    </Text>
-                    <Text
-                      fontSize="sm"
-                      textAlign={{
-                        base: "initial",
-                        md: "initial",
-                        lg: "center",
-                      }}
-                    >
-                      {latest.company}
-                    </Text>
-                  </Stack>
-                ))}
-            </GridItem>
-            <GridItem w="100%" h="100%" marginTop={4}>
-              <Text fontSize="4xl" mb={4}>
-                Press
-              </Text>
-              {press.length > 0 &&
-                press.map((press: any, id: any) => (
-                  <Flex key={id} mb={2}>
-                    <Text fontSize="sm" mr="5px">
-                      {press.media}
-                    </Text>
-                    {press.journalist && (
-                      <Text fontSize="xs" lineHeight="12px">
-                        by {press.journalist}
-                      </Text>
-                    )}
-                  </Flex>
-                ))}
-            </GridItem>
-            <GridItem w="100%" h="100%" marginTop={4}>
-              <Text fontSize="4xl" mb={4}>
-                Awards
-              </Text>
-              <PortableTextComponent content={awards} fontSize="sm" />
-            </GridItem>
-          </>
-        )}
+        <GridItem w="100%" h="100%" marginTop={7}>
+          {biography[0].biography && (
+            <PortableTextComponent
+              content={biography[0].biography}
+              fontSize="sm"
+            />
+          )}
+        </GridItem>
+        <GridItem w="100%" h="100%" marginTop={4}>
+          <Text
+            fontSize="4xl"
+            textAlign={{ base: "initial", md: "initial", lg: "center" }}
+            mb={4}
+          >
+            Latest
+          </Text>
+          {latest &&
+            latest.length > 0 &&
+            latest.map((latest: any, id: any) => (
+              <Stack key={id} spacing="2px" mb={6}>
+                <Text
+                  fontSize="sm"
+                  textAlign={{
+                    base: "initial",
+                    md: "initial",
+                    lg: "center",
+                  }}
+                  as="b"
+                >
+                  {latest.title}
+                </Text>
+                <Text
+                  fontSize="sm"
+                  textAlign={{
+                    base: "initial",
+                    md: "initial",
+                    lg: "center",
+                  }}
+                  as="i"
+                >
+                  {latest.stage}
+                </Text>
+                <Text
+                  fontSize="sm"
+                  textAlign={{
+                    base: "initial",
+                    md: "initial",
+                    lg: "center",
+                  }}
+                >
+                  {latest.mediaType}
+                </Text>
+                <Text
+                  fontSize="sm"
+                  textAlign={{
+                    base: "initial",
+                    md: "initial",
+                    lg: "center",
+                  }}
+                >
+                  {latest.role}
+                </Text>
+                <Text
+                  fontSize="sm"
+                  textAlign={{
+                    base: "initial",
+                    md: "initial",
+                    lg: "center",
+                  }}
+                >
+                  {latest.company}
+                </Text>
+              </Stack>
+            ))}
+        </GridItem>
+        <GridItem w="100%" h="100%" marginTop={4}>
+          <Text fontSize="4xl" mb={4}>
+            Press
+          </Text>
+          {press &&
+            press.length > 0 &&
+            press.map((press: any, id: any) => (
+              <Flex key={id} mb={2}>
+                <Text fontSize="sm" mr="5px">
+                  {press.media}
+                </Text>
+                {press.journalist && (
+                  <Text fontSize="xs" lineHeight="12px">
+                    by {press.journalist}
+                  </Text>
+                )}
+              </Flex>
+            ))}
+        </GridItem>
+        <GridItem w="100%" h="100%" marginTop={4}>
+          <Text fontSize="4xl" mb={4}>
+            Awards
+          </Text>
+          {awards && <PortableTextComponent content={awards} fontSize="sm" />}
+        </GridItem>
       </Grid>
     </Box>
   );

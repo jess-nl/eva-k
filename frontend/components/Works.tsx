@@ -68,7 +68,8 @@ const Works = ({ works }: any) => {
             </Text>
           }
         >
-          {works.length > 0 &&
+          {works &&
+            works.length > 0 &&
             works.map(
               ({ _id, description = "", vimeoUrl = "", slug = [] }: any) => (
                 <div key={_id}>
@@ -79,13 +80,15 @@ const Works = ({ works }: any) => {
                     }}
                   >
                     <GridItem w="98%" h="100%" mt="12px">
-                      <AspectRatio ratio={16 / 9} mb="10px">
-                        <iframe
-                          title="tbd"
-                          src={`${vimeoUrl}?autoplay=1&autopause=0&muted=1&background=1`}
-                          allowFullScreen
-                        />
-                      </AspectRatio>
+                      {vimeoUrl && (
+                        <AspectRatio ratio={16 / 9} mb="10px">
+                          <iframe
+                            title="tbd"
+                            src={`${vimeoUrl}?autoplay=1&autopause=0&muted=1&background=1`}
+                            allowFullScreen
+                          />
+                        </AspectRatio>
+                      )}
                       <Text color="black">{description}</Text>
                     </GridItem>
                   </Link>
