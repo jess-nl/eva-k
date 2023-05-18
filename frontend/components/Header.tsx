@@ -1,9 +1,7 @@
 import Link from "next/link";
 import urlFor from "../hooks/image";
-import handleClickScroll from "@/hooks/handleClickScroll";
 import {
   Text,
-  Flex,
   Box,
   Spacer,
   VStack,
@@ -27,12 +25,13 @@ const Header = ({ header }: any) => {
           flexDirection={{ base: "column", md: "column", lg: "initial" }}
         >
           <Box>
-            {splittedTitle.map((titlePiece: any, id: any) => (
-              <Text fontSize="110px" lineHeight="110%" key={id}>
-                {titlePiece}
-                <br />
-              </Text>
-            ))}
+            {title &&
+              splittedTitle.map((titlePiece: any, id: any) => (
+                <Text fontSize="110px" lineHeight="110%" key={id}>
+                  {titlePiece}
+                  <br />
+                </Text>
+              ))}
           </Box>
           <Spacer />
           <VStack textAlign="right" spacing="100px">
@@ -48,7 +47,7 @@ const Header = ({ header }: any) => {
                 fr | en
               </Text>
             </Box>
-            <Box>
+            <Box p="4" w="360px">
               <Text
                 color="#80687F"
                 fontSize="4xl"
@@ -83,16 +82,18 @@ const Header = ({ header }: any) => {
       </Stack>
       <Box w="100%" h="350px" />
       <Box display={{ base: "none", md: "none", lg: "block" }}>
-        <img
-          src={urlFor(mainImage).height(400).maxHeight(900).url()}
-          style={{
-            position: "absolute",
-            left: "0",
-            right: "840px",
-            margin: "auto",
-            marginTop: "130px",
-          }}
-        />
+        {mainImage && (
+          <img
+            src={urlFor(mainImage).height(400).maxHeight(900).url()}
+            style={{
+              position: "absolute",
+              left: "0",
+              right: "840px",
+              margin: "auto",
+              marginTop: "130px",
+            }}
+          />
+        )}
       </Box>
       <Box
         zIndex={-1}
@@ -101,13 +102,15 @@ const Header = ({ header }: any) => {
         display={{ base: "none", md: "none", lg: "block" }}
       >
         <Box maxW="900px" h="370px" overflow="hidden" mx="auto">
-          <AspectRatio maxW="900px" ratio={16 / 9} mt="-70px">
-            <iframe
-              title="tbd"
-              src={`${vimeoUrl}?autoplay=1&autopause=0&muted=1&background=1#t=0m1s`}
-              allowFullScreen
-            />
-          </AspectRatio>
+          {vimeoUrl && (
+            <AspectRatio maxW="900px" ratio={16 / 9} mt="-70px">
+              <iframe
+                title="tbd"
+                src={`${vimeoUrl}?autoplay=1&autopause=0&muted=1&background=1#t=0m1s`}
+                allowFullScreen
+              />
+            </AspectRatio>
+          )}
         </Box>
       </Box>
     </Stack>

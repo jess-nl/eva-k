@@ -20,20 +20,24 @@ const About = ({ about }: any) => {
                 </GridItem>
               </Grid>
               <Box mx="20%" mt="250px">
-                <PortableTextComponent
-                  content={longSummary}
-                  fontSize="lg"
-                  color="#CFC500"
-                />
+                {longSummary && (
+                  <PortableTextComponent
+                    content={longSummary}
+                    fontSize="lg"
+                    color="#CFC500"
+                  />
+                )}
               </Box>
             </Flex>
           </Box>
 
           <Box bg="#A8973F">
-            <img
-              src={urlFor(mainImage).width(1200).height(1200).toString()}
-              style={{ width: "100%" }}
-            />
+            {mainImage && (
+              <img
+                src={urlFor(mainImage).width(1200).height(1200).toString()}
+                style={{ width: "100%" }}
+              />
+            )}
           </Box>
         </Flex>
       </Box>

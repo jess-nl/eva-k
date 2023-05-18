@@ -48,7 +48,8 @@ const Contact = ({ contact }: any) => {
           >
             {name}
           </Text>
-          {socials.length > 0 &&
+          {socials &&
+            socials.length > 0 &&
             socials.map((social: any, id: any) => (
               <div key={id}>
                 <Link href={social.url} color="#80687F" isExternal>
