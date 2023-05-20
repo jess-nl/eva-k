@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import urlFor from "../hooks/image";
 import {
   Text,
@@ -83,7 +84,7 @@ const Header = ({ header }: any) => {
       <Box w="100%" h="350px" />
       <Box display={{ base: "none", md: "none", lg: "block" }}>
         {mainImage && (
-          <img
+          <Image
             src={urlFor(mainImage).height(400).maxHeight(900).url()}
             style={{
               position: "absolute",
@@ -92,6 +93,7 @@ const Header = ({ header }: any) => {
               margin: "auto",
               marginTop: "130px",
             }}
+            alt=""
           />
         )}
       </Box>
