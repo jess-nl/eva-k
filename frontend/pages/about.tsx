@@ -5,7 +5,6 @@ import urlFor from "../hooks/image";
 import { Flex, Box, Grid, GridItem } from "@chakra-ui/react";
 import BackButton from "@/components/BackButton";
 import Footer from "@/components/Footer";
-import Image from "next/image";
 
 const About = ({ about }: any) => {
   const { mainImage, longSummary } = about[0];
@@ -34,10 +33,9 @@ const About = ({ about }: any) => {
 
           <Box bg="#A8973F">
             {mainImage && (
-              <Image
+              <img
                 src={urlFor(mainImage).width(1200).height(1200).toString()}
                 style={{ width: "100%" }}
-                alt=''
               />
             )}
           </Box>
