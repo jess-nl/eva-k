@@ -2,8 +2,8 @@ import groq from "groq";
 import client from "../../client";
 import Post from "@/components/Post";
 
-const PostWorks = ({ works }: any) => {
-  return <Post post={works} />;
+const PostWorks = (props: any) => {
+  return <Post post={props} />;
 };
 
 const query = groq`*[_type == "works" && slug.current == $slug][0]{

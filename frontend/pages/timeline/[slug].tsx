@@ -2,8 +2,8 @@ import groq from "groq";
 import client from "../../client";
 import Post from "@/components/Post";
 
-const PostTimeline = ({ timeline }: any) => {
-  return <Post post={timeline} />;
+const PostTimeline = (props: any) => {
+  return <Post post={props} />;
 };
 
 const query = groq`*[_type == "timeline" && slug.current == $slug][0]{
