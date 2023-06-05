@@ -35,27 +35,7 @@ const Header = ({ header }: any) => {
           </Box>
           <Spacer />
           <VStack textAlign="right" spacing="100px">
-            <Box
-              p="4"
-              w="360px"
-              display={{ base: "none", md: "none", lg: "block" }}
-            >
-              <Text color="#80687F" fontSize="3xl" lineHeight="80%">
-                <Link href="/about">About Me</Link>
-              </Text>
-              <Text color="#CFC500" fontSize="2xl">
-                fr | en
-              </Text>
-            </Box>
             <Box p="4" w="360px">
-              <Text
-                color="#80687F"
-                fontSize="4xl"
-                cursor="pointer"
-                display={{ base: "block", md: "block", lg: "none" }}
-              >
-                <Link href="/about">About</Link>
-              </Text>
               <Text color="#80687F" fontSize="4xl" cursor="pointer">
                 <Link href="/#biography" passHref scroll={false}>
                   Biography
