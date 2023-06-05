@@ -47,11 +47,6 @@ const Header = ({ header }: any) => {
                 </Link>
               </Text>
               <Text color="#80687F" fontSize="4xl" cursor="pointer">
-                <Link href="/#timeline" passHref scroll={false}>
-                  Timeline
-                </Link>
-              </Text>
-              <Text color="#80687F" fontSize="4xl" cursor="pointer">
                 <Link href="/#contact" passHref scroll={false}>
                   Work With Me
                 </Link>

@@ -29,7 +29,6 @@ export default defineConfig({
             singletonListItem(S, 'biography', 'Biography'),
             singletonListItem(S, 'contact', 'Work With Me'),
             S.documentTypeListItem('works').title('Released Works'),
-            S.documentTypeListItem('timeline').title('Timeline'),
           ]),
     }),
     visionTool(),
