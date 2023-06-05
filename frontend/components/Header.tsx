@@ -37,13 +37,13 @@ const Header = ({ header }: any) => {
           <VStack textAlign="right" spacing="100px">
             <Box p="4" w="360px">
               <Text color="#80687F" fontSize="4xl" cursor="pointer">
-                <Link href="/#biography" passHref scroll={false}>
-                  Biography
+                <Link href="/#works" passHref scroll={false}>
+                  Released Works
                 </Link>
               </Text>
               <Text color="#80687F" fontSize="4xl" cursor="pointer">
-                <Link href="/#works" passHref scroll={false}>
-                  Released Works
+                <Link href="/#biography" passHref scroll={false}>
+                  Biography
                 </Link>
               </Text>
               <Text color="#80687F" fontSize="4xl" cursor="pointer">

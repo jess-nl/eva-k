@@ -7,13 +7,13 @@ import Contact from "../components/Contact";
 import ScrollArrow from "@/components/ScrollArrow";
 
 const Index = (props: any) => {
-  const { header, biography, works, contact } = props;
+  const { header, works, biography, contact } = props;
   return (
     <>
       <ScrollArrow />
       <Header header={header} />
-      <Biography biography={biography} />
       <Works works={works} />
+      <Biography biography={biography} />
       <Contact contact={contact} />
     </>
   );
@@ -23,11 +23,11 @@ export async function getStaticProps() {
   const header = await client.fetch(groq`
     *[_type == "header"]
   `);
+  const works = await client.fetch(groq`
+  *[_type == "works"] | order(publishedAt desc)
+  `);
   const biography = await client.fetch(groq`
     *[_type == "biography"]
-  `);
-  const works = await client.fetch(groq`
-    *[_type == "works"] | order(publishedAt desc)
   `);
   const contact = await client.fetch(groq`
     *[_type == "contact"]
@@ -35,8 +35,8 @@ export async function getStaticProps() {
   return {
     props: {
       header,
-      biography,
       works,
+      biography,
       contact,
     },
   };
