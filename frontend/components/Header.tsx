@@ -43,6 +43,9 @@ const Header = ({ header }: any) => {
               <Text color="#80687F" fontSize="3xl" lineHeight="80%">
                 <Link href="/about">About Me</Link>
               </Text>
+              <Text color="#CFC500" fontSize="2xl">
+                fr | en
+              </Text>
             </Box>
             <Box p="4" w="360px">
               <Text
